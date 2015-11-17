@@ -1,0 +1,40 @@
+<style>
+    .modal-close-btn{
+        display: block;
+        margin: auto;
+    }
+</style>
+<ion-modal-view>
+    <ion-header-bar class="gtn-blue-button" align-title="center">
+        <h1 class="title gtn-blue-button">{{current_employee.name}}</h1>
+    </ion-header-bar>
+    <ion-content>
+        <div class="card">
+            <div class="item item-divider">
+                Start Date at GTNexus:
+            </div>
+            <div class="item item-text-wrap">
+                {{current_employee.startDate | date : 'mediumDate'}}
+            </div>
+        </div>
+        <div class="card">
+            <div class="item item-divider">
+                Department
+            </div>
+            <div class="item item-text-wrap">
+                {{current_employee.department}}
+            </div>
+        </div>
+        <div class="card">
+            <div class="item item-divider">
+                Location
+            </div>
+            <div class="item item-text-wrap">
+                {{current_employee.location}}
+            </div>
+        </div>
+        <div style="margin: auto">
+            <button class="button-large ion-arrow-down-c button gtn-blue-button modal-close-btn" ng-click="closeModal()">   Close</button>
+        </div>
+    </ion-content>
+</ion-modal-view>

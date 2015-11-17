@@ -1,0 +1,67 @@
+<style>
+    .chart-kind-disabled{
+        background: #f7f7f7 !important;
+    }
+</style>
+<ion-header-bar class="gtn-blue-button" align-title="center">
+    <div class="buttons">
+        <button class="button-icon ion-arrow-left-c button back-button disable-user-behavior gtn-blue-button" ui-sref="tab.run-report">Back</button>
+    </div>
+    <h1 class="title gtn-blue-button">Create New Chart</h1>
+</ion-header-bar>
+
+<ion-content>
+
+    <p>For this demo app, you can create charts on 4 different data sets, which are derived
+    from the report selected. Select one of 4 data sets below as well as other options
+    about your chart and then create your chart. The chart will be added to the chart-list and stored
+    in local storage of your phone. </p>
+    <div class="item item-divider gtn-blue-button">
+        Chart Title
+    </div>
+    <label class="item item-input">
+        <input type="text" placeholder="Title" ng-model="chart.title">
+    </label>
+    <div class="item item-divider gtn-blue-button">
+        Select Chart Data Set
+    </div>
+    <ion-radio ng-repeat="dataset in dataSetOptions" ng-model="chart.type" ng-value="dataset.value">{{dataset.label}}</ion-radio>
+    <br>
+    <div class="item item-divider gtn-blue-button">
+        Select Chart Color
+    </div>
+    <div class="list">
+        <label class="item item-input item-select">
+            <div class="input-label">
+                Chart Color
+            </div>
+            <select ng-model="chart.color">
+                <option value="#1B365B" selected>Default Blue</option>
+                <option value="#FF0000">Red</option>
+                <option value="#336633">Green</option>
+                <option value="#FF00FF">Purple</option>
+            </select>
+        </label>
+    </div>
+    <div class="item item-divider gtn-blue-button">
+        Select Chart Type
+    </div>
+    <div class="list">
+        <label class="item item-input item-select">
+            <div class="input-label">
+                Chart Type
+            </div>
+            <select ng-model="chart.kind" ng-class="{'chart-kind-disabled': chartKindSet(chart.type)}" ng-disabled="chartKindSet(chart.type)">
+                <option value="bar">Bar</option>
+                <option value="pie">Pie</option>
+                <option value="donut">Donut</option>
+                <option value="line" ng-show="chartKindSet(chart.type)">Line</option>
+            </select>
+        </label>
+    </div>
+
+    <button ng-click="generateReport(chart)" class="gtn-blue-button center-generate-button">Generate Chart</button>
+
+</ion-content>
+
+

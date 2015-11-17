@@ -1,0 +1,48 @@
+<style>
+
+    .bar {
+        fill: steelblue;
+    }
+
+    .bar:hover {
+        fill: brown;
+    }
+
+
+    .axis path,
+    .axis line {
+        fill: none;
+        stroke: #000;
+        shape-rendering: crispEdges;
+    }
+
+    .show-delete-chat-btn{
+        margin-top: -40px;
+    }
+
+</style>
+
+<ion-view>
+    <ion-content>
+        <h3 style="text-align:center;">All Charts</h3>
+        <div class="buttons">
+            <button class="button button-icon icon ion-ios-minus-outline show-delete-chat-btn"
+                    ng-click="data.showDelete = !data.showDelete; "></button>
+        </div>
+
+        <ion-list show-delete="data.showDelete">
+            <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chart in myCharts | orderBy : sortCharts : true" type="item-text-wrap">
+                <h2>{{chart.title}}</h2>
+                <p>{{chart.dateCreated | date: 'mediumDate'}}</p>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+
+                <ion-option-button class="gtn-blue-button" ng-click="viewChart(chart)">
+                    View Chart
+                </ion-option-button>
+                <ion-delete-button class="ion-minus-circled"
+                                   ng-click="showConfirm(chart)">
+            </ion-item>
+        </ion-list>
+
+    </ion-content>
+</ion-view>

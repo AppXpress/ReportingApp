@@ -1,0 +1,42 @@
+<style>
+    .loading-div{
+        text-align:center;
+    }
+    .loading-div svg{
+        display: block;
+        margin: auto;
+        background-color: #ffffff;
+    }
+    .alert-msg{
+        text-align:center;
+        font-weight:bold;
+    }
+    .gtn-item{
+        padding: 10px 0;
+    }
+</style>
+
+<ion-view view-title="Run A Report">
+    <ion-content>
+        <p>Execute a new report - it might take a while to fully execute a report on a large amount of data</p>
+        <div class="gtn-item">
+        <button class="button button-outline button-full button-positive" ng-click="runReport()">
+            Execute a new Report
+        </button>
+        <p class="alert-msg">{{executeMsg}}</p>
+        </div>
+        <div class="gtn-item">
+            <button class="button button-outline button-full button-positive" ng-click="pollReport()" ng-disabled="!executeReportSuccess">
+                Poll Report
+            </button>
+            <p class="alert-msg">{{alertMsg}}</p>
+        </div>
+        <div class="loading-div" ng-show="loading">
+            Report generating....
+            <ion-spinner></ion-spinner>
+        </div>
+
+        <button class="button button-energized center-button" ng-show="reportSuccess()" ng-click="createNewChart()">Create Chart from Report Data</button>
+
+    </ion-content>
+</ion-view>

@@ -1,0 +1,43 @@
+<ion-header-bar class="gtn-blue-button" align-title="center">
+    <div class="buttons">
+        <button class="button-icon ion-arrow-left-c button back-button disable-user-behavior gtn-blue-button" ui-sref="tab.charts">Back</button>
+    </div>
+    <h1 class="title gtn-blue-button">This Chart</h1>
+</ion-header-bar>
+<ion-view>
+    <ion-content style="padding-bottom: 10px">
+        <h4 style="text-align: center;">{{title}}</h4>
+        <div ng-show="kind == 'bar' || kind == 'line'">
+            <linechart data="data" options="options" width="400" height="300"></linechart>
+            <div class="col col-75" style=" margin: 25px auto; display: block;" ng-show=" kind != 'line'">
+                Chart Legend
+                <div class="row header">
+                    <div class="col legend-table">Full</div>
+                    <div class="col legend-table">Key</div>
+                </div>
+                <div class="row" ng-repeat="item in legend">
+                    <div class="col legend-table">{{item.full}}</div>
+                    <div class="col legend-table">{{item.short}}</div>
+                </div>
+            </div>
+        </div>
+        <div ng-show="kind == 'pie' || kind == 'donut'">
+            <pie-chart data="data" options="options" width="200" height="200"></pie-chart>
+            {{chartLabel}}
+            <div class="col col-75" style=" margin: 25px auto; display: block;">
+                Chart Legend
+                <div class="row header">
+                    <div class="col legend-table">Color</div>
+                    <div class="col legend-table">Label</div>
+                    <div class="col legend-table">Value</div>
+                </div>
+                <div class="row" ng-repeat="section in data">
+                    <div class="col" ng-style="{'background-color': section.color}"></div>
+                    <div class="col legend-table">{{section.label}}</div>
+                    <div class="col legend-table">{{section.value}}</div>
+                </div>
+            </div>
+        </div>
+
+    </ion-content>
+</ion-view>

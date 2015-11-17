@@ -1,0 +1,22 @@
+<style>
+    .gtnx-companydata-header{
+        text-align: center;
+        font-weight: bold;
+        letter-spacing: 0.1em;
+    }
+
+</style>
+
+<ion-view cache-view="false">
+  <ion-content>
+    <p>Below is the data that was derived from the last executed report.</p>
+    <h4 class="gtnx-companydata-header">Company Employees</h4>
+
+    <div class="list card" ng-repeat="person in companyData" ng-if="person['First Name'] != ''">
+        <div class="item item-avatar">
+            <h2>{{person['First Name']}} {{person['Last Name']}}</h2>
+            <button class="button button-positive" style="float:right;" ng-click="openModal(person)">More Info</button>
+        </div>
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+            id="com.gtnexus.appxpress.reportingplugin" version="0.2.3">
+        <name>GT Reporting Plugin</name>
+        <description>Handles files downloaded from uses the /Poll API resource</description>
+        <license>Apache 2.0</license>
+        <keywords>cordova, gtnexus</keywords>
+		<engines>
+			<engine name="cordova" version=">=3.0.0"/>
+		</engines>
+        <js-module src="www/gtnxreport.js" name="gtnxreport">
+			<clobbers target="window.GTNXReport" />
+		</js-module>
+        <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="gtnxReportHandler"> <!-- using the same feature name for android -->
+                <param name="android-package" value="com.gtnexus.appxpress.cordova.GTNexusReportPluginAndroid"/>
+            </feature>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+            <uses-permission android:name="android.permission.INTERNET" />
+        </config-file>
+        
+        <source-file src="src/android/GTNexusReportPluginAndroid.java" target-dir="src/com/gtnexus/appxpress/cordova" />
+		<source-file src="src/android/ReportDownloader.java" target-dir="src/com/gtnexus/appxpress/cordova"/>
+        
+        <js-module src="www/gtnxreport.js" name="gtnxreport">
+            <clobbers target="window.GTNXReport" />
+        </js-module>
+        
+    </platform>
+    </plugin>
