@@ -1,11 +1,12 @@
-# ReportingApp
-Source code for mobile reporting app that uses GTNexus's reporting service over the RESTful API to create charts on active data
-![] (https://github.com/atreynolds36/GTNexus-Mobile/blob/master/images/GT%20Nexus%20Inbox%20Header.jpg)
+![] (https://github.com/AppXpress/ToDoListMobileApp/blob/master/images/GT%20Nexus%20Inbox%20Header.jpg)
 
-GTNexus-Mobile
+ReportingApp
 ==============
 
-Source for Mobile Application developed on GTNexus Platform
+The code on this repository is a completed phonegap project of a mobile application that showcases the ability to
+create charts from reports generated on the GTNexus platform and served over over a RESTful web service. The purpose
+of the app is to emphasize the power and flexibility of the GTNexus API service as well as the usefulness and ease
+of reporting on data that is stored on GTNexus's cloud. 
 
 ## About
 
