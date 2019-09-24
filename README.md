@@ -1,4 +1,4 @@
-![] (https://github.com/AppXpress/ToDoListMobileApp/blob/master/images/GT%20Nexus%20Inbox%20Header.jpg)
+![GT Nexus](https://github.com/AppXpress/ToDoListMobileApp/blob/master/images/GT%20Nexus%20Inbox%20Header.jpg)
 
 ReportingApp
 ==============
